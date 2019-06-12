@@ -3,7 +3,7 @@ import DestinationInput from '../components/destinations/DestinationInput'
 import Destinations from '../components/destinations/Destinations'
 import { connect } from './node_modules/react-redux'
 
-class destinationsContainer extends Component {
+class DestinationsContainer extends Component {
   render() {
     return (
       <div>
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
   deleteDestination: id => dispatch({ type: 'DELETE_DESTINATION', id })
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(destinationsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(DestinationsContainer)
