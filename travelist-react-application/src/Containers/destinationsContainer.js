@@ -5,7 +5,15 @@ import { connect } from 'react-redux'
 
 class DestinationsContainer extends Component {
   render() {
-
+    return (
+      <div>
+        <DestinationInput addDestination={this.props.addDestination} />
+        <Destinations
+          destinations={this.props.destinations} //THIS PROBABLY NEEDS FIXED TO INCLUDE IMG SRC={DESTINATION.URL} WITH A KEY, ETC
+          deleteDestination={this.props.deleteDestination}
+        />
+      </div>
+    );
   }
 }
 

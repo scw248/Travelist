@@ -21,7 +21,7 @@ class App extends Component {
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
-        <DestinationsContainer destinationPics={this.props.destinationPics} />
+        <destinationsContainer destinationPics={this.props.destinationPics} />
       </div>
     )
   }
