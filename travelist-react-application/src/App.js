@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { fetchDestinations } from './actions/destinationActions'
+import { fetchDestinations } from './actions/destinationActions.js'
 import './App.css'
 import DestinationsContainer from './containers/DestinationsContainer'
 
