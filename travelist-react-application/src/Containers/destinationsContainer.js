@@ -9,7 +9,7 @@ class DestinationsContainer extends Component {
       <div>
         <DestinationInput addDestination={this.props.addDestination} />
         <Destinations
-          destinations={this.props.destinations} //THIS PROBABLY NEEDS FIXED TO INCLUDE IMG SRC={DESTINATION.URL} WITH A KEY, ETC
+          destinations={this.props.destinations} 
           deleteDestination={this.props.deleteDestination}
         />
       </div>

@@ -1,7 +1,7 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
-export default function manageDestinations(state = { destinations: [], loading: false, pictures: [] }, action) {
+export default function manageDestinations(state = { destinations: [] }, action) {
   switch (action.type) {
 
     case 'ADD_DESTINATION':
@@ -16,14 +16,14 @@ export default function manageDestinations(state = { destinations: [], loading: 
       const destinations = state.destinations.filter(destination => destination.id !== action.id);
       return { ...state, destinations }
 
-    case 'EDIT_DESTINATION':
-      return {}
+    // case 'EDIT_DESTINATION':
+    //   return {}
 
-    case 'LOADING_DESTINATIONS':
-      return { ...state, loading: true };
+    // case 'LOADING_DESTINATIONS':
+    //   return { ...state, loading: true };
 
-    case 'FETCH_DESTINATIONS':
-      return { loading: false, pictures: [...action.payload] };
+    // case 'FETCH_DESTINATIONS':
+    //   return { loading: false, pictures: [...action.payload] };
 
     default:
       return state;

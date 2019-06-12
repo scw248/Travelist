@@ -25,7 +25,7 @@ class DestinationInput extends Component {
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)} >
-          <label>Add Destination</label>
+          <label>Add Destination </label>
           <input type="text" onChange={(event) => this.handleChange(event)} value={this.state.text} />
           <input type="submit" />
         </form>
