@@ -13,3 +13,9 @@ export const fetchDestinations = () => {
       });
   };
 }
+
+export const loadingDestinations = () => {
+  return {
+    type: 'LOADING_DESTINATIONS'
+  }
+}
