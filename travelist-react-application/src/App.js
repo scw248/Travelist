@@ -13,7 +13,16 @@ class App extends Component {
 
   render() {
     return (
-      
+      <div className="App">
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">Destinations</a>
+            </Navbar.Brand>
+          </Navbar.Header>
+        </Navbar>
+        <DestinationsContainer destinationPics={this.props.destinationPics} />
+      </div>
     )
   }
 }
