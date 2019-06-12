@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap/Navbar';
 import { connect } from 'react-redux';
 import { fetchDestinations } from './actions/destinationActions.js'
 import './App.css'
