@@ -1,7 +1,7 @@
-import React, { Component } from './node_modules/react';
+import React, { Component } from 'react';
 import DestinationInput from '../components/destinations/DestinationInput'
 import Destinations from '../components/destinations/Destinations'
-import { connect } from './node_modules/react-redux'
+import { connect } from 'react-redux'
 
 class DestinationsContainer extends Component {
   render() {
