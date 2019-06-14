@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 const reducer = combineReducers({
   users: usersReducer,
   currentUser: currentUserReducer,
-  login: loginFormReducer
+  loginForm: loginFormReducer
 
   // destinations: destinationsReducer,
 })
