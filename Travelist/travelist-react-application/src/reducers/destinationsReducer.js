@@ -1,7 +1,7 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
-export default function destinationsReducer(state = { destinations: [] }, action) {
+export default (state = { destinations: [] }, action) => {
   switch (action.type) {
 
     case 'ADD_DESTINATION':
