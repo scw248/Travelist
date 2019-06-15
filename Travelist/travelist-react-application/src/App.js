@@ -8,7 +8,7 @@ import { getCurrentUser } from './actions/currentUserActions'
 class App extends Component {
 
   componentDidMount() {
-    getCurrentUser()
+    this.props.getCurrentUser()
   }
 
   render() {
