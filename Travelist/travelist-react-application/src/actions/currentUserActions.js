@@ -6,6 +6,12 @@ export const setCurrentUser = user => {
   }
 }
 
+export const clearCurrentUser = () => {
+  return {
+    type: "CLEAR_CURRENT_USER"
+  }
+}
+
 
 //asynchronous action creators
 export const login = credentials => {
@@ -28,6 +34,16 @@ export const login = credentials => {
         }
       })
       .catch(console.log)
+  }
+}
+
+export const logout = () => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    return fetch('http://localhost:3000/api/v1/logout', {
+      credentials: "include",
+      method: "DELETE"
+    })
   }
 }
 
