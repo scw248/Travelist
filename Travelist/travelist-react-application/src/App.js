@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './App.css'
 import Login from './components/Login'
 import DestinationsContainer from './containers/DestinationsContainer';
+import { connect } from 'react-redux'
+import { getCurrentUser } from './actions/currentUserActions'
 
 class App extends Component {
 
   componentDidMount() {
-
+    getCurrentUser()
   }
 
   render() {
@@ -19,7 +21,7 @@ class App extends Component {
   }
 };
 
-export default App
+export default connect(null, { getCurrentUser })(App)
 
 
 

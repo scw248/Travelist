@@ -48,8 +48,8 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(response.data))
           //   dispatch(getMyTrips())
-          // }
-        })
+        }
+      })
       .catch(console.log)
   }
 }
