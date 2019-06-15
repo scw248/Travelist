@@ -5,6 +5,10 @@ import DestinationsContainer from './containers/DestinationsContainer';
 
 class App extends Component {
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className="App">
