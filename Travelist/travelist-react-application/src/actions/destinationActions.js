@@ -1,3 +1,11 @@
+//synchronous action creators
+export const loadingDestinations = () => {
+  return {
+    type: 'LOADING_DESTINATIONS'
+  }
+}
+
+//asynchronous action creators
 export const fetchDestinations = () => {
   let destinations;
   return (dispatch) => {
@@ -12,10 +20,4 @@ export const fetchDestinations = () => {
         })
       });
   };
-}
-
-export const loadingDestinations = () => {
-  return {
-    type: 'LOADING_DESTINATIONS'
-  }
 }

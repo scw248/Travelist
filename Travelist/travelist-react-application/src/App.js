@@ -3,7 +3,7 @@ import './App.css'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUserActions'
 import DestinationsContainer from './containers/DestinationsContainer';
-import NavBar from './components/NavBar'
+import NavBarContainer from './containers/NavBarContainer'
 
 class App extends Component {
 
@@ -13,8 +13,8 @@ class App extends Component {
   // <DestinationsContainer /> ADD THIS BACK IN
   render() {
     return (
-      <div class="App">
-        <NavBar />
+      <div className="App">
+        <NavBarContainer />
       </div>
     );
   }
