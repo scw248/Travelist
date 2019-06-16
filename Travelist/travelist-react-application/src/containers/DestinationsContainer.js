@@ -6,10 +6,10 @@ import { connect } from 'react-redux'
 class DestinationsContainer extends Component {
   render() {
     return (
-      <div>
+      <div class="DestinationsContainer">
         <DestinationInput addDestination={this.props.addDestination} />
         <Destinations
-          destinations={this.props.destinations} 
+          destinations={this.props.destinations}
           deleteDestination={this.props.deleteDestination}
         />
       </div>
