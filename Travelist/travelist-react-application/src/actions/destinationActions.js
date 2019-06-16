@@ -1,23 +1,30 @@
 //synchronous action creators
-export const loadingDestinations = () => {
+export const loadDestinations = destinations => {
   return {
-    type: 'LOADING_DESTINATIONS'
+    type: 'LOADING_DESTINATIONS',
+    destinations
   }
 }
 
 //asynchronous action creators
-export const fetchDestinations = () => {
-  let destinations;
-  return (dispatch) => {
-    dispatch({ type: 'LOADING_Destinations' });
-    return fetch('http://localhost:3000/db')
-      .then(response => response.json())
-      .then(responseJSON => {
-        destinations = responseJSON.images.map(image => ({ url: image.url }))
-        dispatch({
-          type: 'FETCH_DESTINATIONS',
-          payload: destinations
-        })
-      });
-  };
+export const getDestinations = () => {
+  return dispatch => {
+    return fetch("http://localhost:3001/api/v1/destinations", {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          console.log(response.data)
+          dispatch(loadDestinations(response.data))
+        }
+      })
+      .catch(console.log)
+  }
 }
