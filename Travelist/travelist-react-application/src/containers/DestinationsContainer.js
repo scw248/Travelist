@@ -15,6 +15,7 @@ class DestinationsContainer extends Component {
 
 export default DestinationsContainer
 
+
 //       <div class="DestinationsContainer">
 //         <DestinationInput addDestination={this.props.addDestination} />
 //         <Destinations
