@@ -2,7 +2,17 @@ import React from 'react'
 
 const DestinationCard = ({ destination }) => {
   return (
-    <p>{destination.attributes.name}</p>
+    <React.Fragment>
+      <p>{destination.attributes.image}</p>
+      <p>{destination.attributes.name}</p>
+      <p>{destination.attributes.votes}</p>
+      <p>{destination.attributes.price}</p>
+      <p>{destination.attributes.description}</p>
+      <p>{destination.attributes.city}</p>
+      <p>{destination.attributes.state}</p>
+      <p>{destination.attributes.country}</p>
+      <p>{destination.attributes.categories}</p>
+    </React.Fragment>
   )
 }
 
