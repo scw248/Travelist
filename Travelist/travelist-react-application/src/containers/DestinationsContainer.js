@@ -7,7 +7,7 @@ class DestinationsContainer extends Component {
   render() {
     return (
       <div className="DestinationsContainer">
-        I am where destinations should go
+        <Destinations />
       </div>
     )
   }

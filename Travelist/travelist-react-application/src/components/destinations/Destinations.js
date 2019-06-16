@@ -1,26 +1,23 @@
-import React, { Component } from 'react';
-import Destination from './Destination';
+import React from 'react';
+import DestinationCard from './DestinationCard';
+import { connect } from 'react-redux'
 
-class Destinations extends Component {
+const Destinations = props => {
 
-  render() {
-    const { destinations, deleteDestination } = this.props;
-    const allDestinations = destinations.map(destination => {
-      return (
-        <Destination
-          key={destination.id}
-          destination={destination}
-          deleteDestination={deleteDestination}
-        />
-      )
-    });
+  const destinationCards = props.destinations.length > 0 ?
+    props.destinations.map(destination => <DestinationCard destination={destination} key={destination.id} />) :
+    null
 
-    return (
-      <ul>
-        {allDestinations}
-      </ul>
-    );
+  return (
+    destinationCards
+  )
+}
+
+const mapStateToProps = state => {
+  return {
+    trips: state.destinations
   }
 }
 
-export default Destinations
+
+export default connect(mapStateToProps)(Destinations)
