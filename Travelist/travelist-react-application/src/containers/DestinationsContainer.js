@@ -6,23 +6,32 @@ import { connect } from 'react-redux'
 class DestinationsContainer extends Component {
   render() {
     return (
-      <div class="DestinationsContainer">
-        <DestinationInput addDestination={this.props.addDestination} />
-        <Destinations
-          destinations={this.props.destinations}
-          deleteDestination={this.props.deleteDestination}
-        />
+      <div className="DestinationsContainer">
+        I am where destinations should go
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = state => ({ destinations: state.destinations })
+export default DestinationsContainer
 
-const mapDispatchToProps = dispatch => ({
-  addDestination: text => dispatch({ type: 'ADD_DESTINATION', text }),
-  deleteDestination: id => dispatch({ type: 'DELETE_DESTINATION', id })
-})
+//       <div class="DestinationsContainer">
+//         <DestinationInput addDestination={this.props.addDestination} />
+//         <Destinations
+//           destinations={this.props.destinations}
+//           deleteDestination={this.props.deleteDestination}
+//         />
+//       </div>
+//     );
+//   }
+// }
+
+// const mapStateToProps = state => ({ destinations: state.destinations })
+
+// const mapDispatchToProps = dispatch => ({
+//   addDestination: text => dispatch({ type: 'ADD_DESTINATION', text }),
+//   deleteDestination: id => dispatch({ type: 'DELETE_DESTINATION', id })
+// })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DestinationsContainer)
+// export default connect(mapStateToProps, mapDispatchToProps)(DestinationsContainer)

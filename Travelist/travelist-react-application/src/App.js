@@ -10,11 +10,12 @@ class App extends Component {
   componentDidMount() {
     this.props.getCurrentUser()
   }
-  // <DestinationsContainer /> ADD THIS BACK IN
+
   render() {
     return (
       <div className="App">
         <NavBarContainer />
+        <DestinationsContainer />
       </div>
     );
   }
