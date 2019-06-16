@@ -9,7 +9,7 @@ export const setDestinations = destinations => {
 //asynchronous action creators
 export const getDestinations = () => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/destinations", {
+    return fetch("http://localhost:3000/api/v1/destinations", {
       credentials: "include",
       method: "GET",
       headers: {
