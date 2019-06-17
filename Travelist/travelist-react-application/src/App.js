@@ -6,6 +6,7 @@ import DestinationsContainer from './containers/DestinationsContainer';
 import NavigationBar from './containers/NavBarContainer'
 import { NoMatch } from './components/NoMatch'
 import { Layout } from './components/Layout'
+import { Jumbotron } from './components/Jumbotron';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
       <React.Fragment className="App">
         <Router>
           <NavigationBar />
+          <Jumbotron />
           <Layout>
             <Switch>
               <Route exact path="/api/v1/destinations" component={DestinationsContainer} />
