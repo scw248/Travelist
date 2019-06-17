@@ -16,15 +16,15 @@ class App extends Component {
   render() {
     return (
       <React.Fragment className="App">
-        <NavigationBar />
-        <Layout>
-          <Router>
+        <Router>
+          <NavigationBar />
+          <Layout>
             <Switch>
               <Route exact path="/api/v1/destinations" component={DestinationsContainer} />
               <Route component={NoMatch} />
             </Switch>
-          </Router>
-        </Layout>
+          </Layout>
+        </Router>
       </React.Fragment>
     );
   }

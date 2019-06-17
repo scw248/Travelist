@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import DestinationInput from '../components/destinations/DestinationInput'
 import Destinations from '../components/destinations/Destinations'
 import { connect } from 'react-redux'
@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 const DestinationsContainer = ({ currentUser }) => {
   return (
     <div className="DestinationsContainer">
-      {currentUser ? <p>Welcome {currentUser.attributes.email}</p> : ""}
       {currentUser ? <p><Destinations /></p> : ""}
 
     </div>
