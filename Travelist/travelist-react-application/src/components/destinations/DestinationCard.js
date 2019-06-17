@@ -1,17 +1,36 @@
 import React from 'react'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Nav from 'react-bootstrap/Nav'
 
 const DestinationCard = ({ destination }) => {
   return (
     <React.Fragment>
-      <p>{destination.attributes.image}</p>
-      <p>{destination.attributes.name}</p>
-      <p>{destination.attributes.votes}</p>
-      <p>{destination.attributes.price}</p>
-      <p>{destination.attributes.description}</p>
-      <p>{destination.attributes.city}</p>
-      <p>{destination.attributes.state}</p>
-      <p>{destination.attributes.country}</p>
-      <p>{destination.attributes.categories}</p>
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={destination.attributes.image} />
+        <Card.Body>
+          <Card.Title>{destination.attributes.name}</Card.Title>
+          <Card.Text>
+            <div>{destination.attributes.city}, {destination.attributes.state} {destination.attributes.country}</div>
+            <div>
+              Votes: {destination.attributes.votes}
+              <br />
+              Price: {destination.attributes.price}
+              <br />
+              Categories: {destination.attributes.categories}
+            </div>
+            <Nav.Item>
+              <Nav.Link href={destination.attributes.description}>
+                Description
+              </Nav.Link>
+            </Nav.Item>
+
+            {destination.attributes.description}
+
+          </Card.Text>
+          <Button variant="primary">Pin It!</Button>
+        </Card.Body>
+      </Card>
     </React.Fragment>
   )
 }
