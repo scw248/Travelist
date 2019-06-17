@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUserActions'
 import DestinationsContainer from './containers/DestinationsContainer';
 import NavBarContainer from './containers/NavBarContainer'
+import { NoMatch } from './components/NoMatch'
 
 class App extends Component {
 
@@ -13,10 +15,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <React.Fragment className="App">
         <NavBarContainer />
-        <DestinationsContainer />
-      </div>
+        <Router>
+          <Switch>
+            <Route exact path="/api/v1/destinations" component={DestinationsContainer} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
+      </React.Fragment>
     );
   }
 };

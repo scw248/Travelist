@@ -3,18 +3,22 @@ import DestinationInput from '../components/destinations/DestinationInput'
 import Destinations from '../components/destinations/Destinations'
 import { connect } from 'react-redux'
 
-class DestinationsContainer extends Component {
-  render() {
-    return (
-      <div className="DestinationsContainer">
-        <Destinations />
-      </div>
-    )
+const DestinationsContainer = ({ currentUser }) => {
+  return (
+    <div className="DestinationsContainer">
+      {currentUser ? <p><Destinations /></p> : ""}
+
+    </div>
+  )
+}
+
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
   }
 }
 
-export default DestinationsContainer
-
+export default connect(mapStateToProps)(DestinationsContainer)
 
 //       <div class="DestinationsContainer">
 //         <DestinationInput addDestination={this.props.addDestination} />
