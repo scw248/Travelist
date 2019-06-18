@@ -20,6 +20,9 @@ const mapStateToProps = ({ currentUser }) => {
 
 export default connect(mapStateToProps)(DestinationsContainer)
 
+
+
+
 //       <div class="DestinationsContainer">
 //         <DestinationInput addDestination={this.props.addDestination} />
 //         <Destinations

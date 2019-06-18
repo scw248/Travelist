@@ -1,3 +1,5 @@
+import { connect } from 'react-redux'
+
 // synchronous actions
 export const setMyDestinations = destinations => {
   return {
@@ -7,9 +9,10 @@ export const setMyDestinations = destinations => {
 }
 
 // async actions
-export const getMyDestinations = () => {
+const getMyDestinations = ({ currentUser }) => {
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/users/{id}/destinations", {
+    debugger
+    return fetch(`http://localhost:3000/api/v1/users/${currentUser.id}/destinations`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -28,3 +31,11 @@ export const getMyDestinations = () => {
       .catch(console.log)
   }
 }
+
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps)(getMyDestinations)

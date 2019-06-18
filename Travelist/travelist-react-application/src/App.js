@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUserActions'
 import DestinationsContainer from './containers/DestinationsContainer';
+import MyDestinationsContainer from './containers/MyDestinationsContainer'
 import NavigationBar from './containers/NavBarContainer'
 import { NoMatch } from './components/NoMatch'
 import { Layout } from './components/Layout'
@@ -23,6 +24,7 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/api/v1/destinations" component={DestinationsContainer} />
+              <Route exact path="/api/v1/users//destinations" component={MyDestinationsContainer} />
               <Route component={NoMatch} />
             </Switch>
           </Layout>
