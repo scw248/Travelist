@@ -10,25 +10,20 @@ const DestinationCard = ({ destination }) => {
         <Card.Img variant="top" src={destination.attributes.image} />
         <Card.Body>
           <Card.Title>{destination.attributes.name}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{destination.attributes.city}, {destination.attributes.state} {destination.attributes.country}</Card.Subtitle>
           <Card.Text>
-            <div>{destination.attributes.city}, {destination.attributes.state} {destination.attributes.country}</div>
             <div>
-              Votes: {destination.attributes.votes}
+              <strong>Price:</strong> {destination.attributes.price}
               <br />
-              Price: {destination.attributes.price}
+              <strong>Categories:</strong> {destination.attributes.categories}
               <br />
-              Categories: {destination.attributes.categories}
+              <strong>Description:</strong> {destination.attributes.description}
             </div>
-            <Nav.Item>
-              <Nav.Link href={destination.attributes.description}>
-                Description
-              </Nav.Link>
-            </Nav.Item>
-
-            {destination.attributes.description}
-
           </Card.Text>
           <Button variant="primary">Pin It!</Button>
+          {/* <Button variant="secondary">Up Vote</Button>
+          <Button variant="secondary">Down Vote</Button> */}
+          {/* This will be an add-on feature at a later time with destination.attributes.votes  */}
         </Card.Body>
       </Card>
     </React.Fragment>
