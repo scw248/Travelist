@@ -4,12 +4,14 @@ import currentUserReducer from './reducers/currentUserReducer'
 import loginFormReducer from './reducers/loginFormReducer'
 import thunk from 'redux-thunk'
 import destinationsReducer from './reducers/destinationsReducer.js';
+import myDestinationsReducer from './reducers/myDestinationsReducer.js';
 
 const reducer = combineReducers({
   users: usersReducer,
   currentUser: currentUserReducer,
   loginForm: loginFormReducer,
-  destinations: destinationsReducer
+  destinations: destinationsReducer,
+  myDestinations: myDestinationsReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

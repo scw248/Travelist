@@ -1,7 +1,6 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import Nav from 'react-bootstrap/Nav'
 
 const DestinationCard = ({ destination }) => {
   return (
