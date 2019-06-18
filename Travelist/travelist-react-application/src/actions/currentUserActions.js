@@ -1,5 +1,7 @@
 import { resetLoginForm } from "./loginFormActions"
 import { getDestinations } from "./destinationActions"
+import { getMyDestinations } from "./myDestinationActions"
+
 //synchronous action creators
 export const setCurrentUser = user => {
   return {
@@ -35,6 +37,7 @@ export const login = credentials => {
           dispatch(setCurrentUser(resp.data))
           dispatch(resetLoginForm())
           dispatch(getDestinations())
+          dispatch(getMyDestinations())
         }
       })
       .catch(console.log)
@@ -52,7 +55,6 @@ export const logout = () => {
 }
 
 export const getCurrentUser = () => {
-  console.log("DISPATCHING GET CURRENT USER")
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/get_current_user", {
       credentials: "include",
@@ -68,6 +70,7 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(resp.data))
           dispatch(getDestinations())
+          dispatch(getMyDestinations())
         }
       })
       .catch(console.log)

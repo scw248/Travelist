@@ -28,10 +28,15 @@ const NavigationBar = ({ currentUser }) => {
           <Navbar.Brand>Welcome {currentUser.attributes.email}</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav classname="ml-auto">
+            <Nav className="ml-auto">
               <Nav.Item>
                 <Nav.Link>
                   <Link to="/api/v1/destinations">Home</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>
+                  <Link to={`/api/v1/users/${currentUser.id}/destinations`}>My Destinations</Link>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>

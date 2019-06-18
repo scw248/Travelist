@@ -17,14 +17,14 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment className="App">
+      <React.Fragment>
         <Router>
           <NavigationBar />
           <Jumbotron />
           <Layout>
             <Switch>
               <Route exact path="/api/v1/destinations" component={DestinationsContainer} />
-              <Route exact path="/api/v1/users//destinations" component={MyDestinationsContainer} />
+              <Route path={`/api/v1/users/:currentUserId/destinations`} component={MyDestinationsContainer} />
               <Route component={NoMatch} />
             </Switch>
           </Layout>
@@ -34,8 +34,14 @@ class App extends Component {
   }
 };
 
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
 
-export default connect(null, { getCurrentUser })(App)
+
+export default connect(mapStateToProps, { getCurrentUser })(App)
 
 
 
