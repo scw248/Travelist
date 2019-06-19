@@ -1,23 +1,8 @@
-const initialState = {
-  name: "",
-  city: "",
-  state: "",
-  country: "",
-  price: "",
-  description: "",
-  image: "",
-  }
-
-export default (state = initialState, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case "SET_MY_DESTINATIONS":
       return action.destinations
-    case "UPDATE_DESTINATION_FORM":
-      return action.formData
-    case "RESET_DESTINATION_FORM":
-      return initialState
     default:
       return state
   }
 }
-

@@ -65,7 +65,7 @@ export const signup = credentials => {
         } else {
           dispatch(setCurrentUser(response.data))
           dispatch(getDestinations())
-          dispatch(getDestinations())
+          dispatch(getMyDestinations())
           dispatch(resetSignupForm())
         }
       })

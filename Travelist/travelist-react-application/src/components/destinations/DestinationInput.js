@@ -1,37 +1,42 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
+import { updateDestinationForm } from '../../actions/destinationFormActions'
+import { addDestination } from '../../actions/destinationFormActions'
 
-class DestinationInput extends Component {
+const DestinationInput = ({ destinationFormData, updateDestinationForm, addDestination }) => {
 
-  constructor() {
-    super()
-    this.state = {
-      text: ''
+  const handleChange = event => {
+    const { name, value } = event.target
+    const updatedFormInfo = {
+      ...destinationFormData,
+      [name]: value
     }
+    updateDestinationForm(updatedFormInfo)
   }
 
-  handleChange(event) {
-    this.setState({ text: event.target.value })
+  const handleSubmit = event => {
+    event.preventDefault()
+    addDestination(destinationFormData)
   }
 
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.addDestination(this.state.text)
-    this.setState({
-      text: ''
-    });
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="name" onChange={handleChange} value={destinationFormData.name} placeholder="name" />
+      <input type="text" name="city" onChange={handleChange} value={destinationFormData.city} placeholder="city" />
+      <input type="text" name="state" onChange={handleChange} value={destinationFormData.state} placeholder="state" />
+      <input type="text" name="country" onChange={handleChange} value={destinationFormData.country} placeholder="country" />
+      <input type="text" name="price" onChange={handleChange} value={destinationFormData.price} placeholder="price" />
+      <input type="text" name="description" onChange={handleChange} value={destinationFormData.description} placeholder="description" />
+      <input type="text" name="image" onChange={handleChange} value={destinationFormData.image} placeholder="image" />
+      <input type="submit" value="Add Destination" />
+    </form>
+  )
+}
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)} >
-          <label>Add Destination </label>
-          <input type="text" onChange={(event) => this.handleChange(event)} value={this.state.text} />
-          <input type="submit" />
-        </form>
-      </div>
-    );
+const mapStateToProps = state => {
+  return {
+    destinationFormData: state.destinationForm
   }
 }
 
-export default DestinationInput
+export default connect(mapStateToProps, { updateDestinationForm, addDestination })(DestinationInput)

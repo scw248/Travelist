@@ -6,6 +6,7 @@ import thunk from 'redux-thunk'
 import destinationsReducer from './reducers/destinationsReducer.js';
 import myDestinationsReducer from './reducers/myDestinationsReducer.js';
 import signupFormReducer from './reducers/signupFormReducer.js';
+import destinationFormReducer from './reducers/destinationFormReducer.js';
 
 const reducer = combineReducers({
   users: usersReducer,
@@ -13,7 +14,8 @@ const reducer = combineReducers({
   loginForm: loginFormReducer,
   destinations: destinationsReducer,
   myDestinations: myDestinationsReducer,
-  signupForm: signupFormReducer
+  signupForm: signupFormReducer,
+  destinationForm: destinationFormReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
