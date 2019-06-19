@@ -34,14 +34,7 @@ class App extends Component {
   }
 };
 
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    currentUser
-  }
-}
-
-
-export default connect(mapStateToProps, { getCurrentUser })(App)
+export default connect(null, { getCurrentUser })(App)
 
 
 
