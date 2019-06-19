@@ -25,6 +25,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/api/v1/destinations" component={DestinationsContainer} />
               <Route path={`/api/v1/users/:currentUserId/destinations`} component={MyDestinationsContainer} />
+              <Route exact path='/signup' component={Signup} />
+              <Route exact path='/login' component={Login} />
               <Route component={NoMatch} />
             </Switch>
           </Layout>

@@ -5,6 +5,7 @@ import Logout from '../components/Logout'
 import { Link } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap'
 import styled from 'styled-components'
+import Signup from '../components/Signup';
 
 const Styles = styled.div`
   .navbar {
@@ -45,7 +46,12 @@ const NavigationBar = ({ currentUser }) => {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        : <Login />}
+        :
+        <React.Fragment>
+          <Login />
+          <Signup />
+        </React.Fragment>
+      }
     </Styles>
   )
 }
