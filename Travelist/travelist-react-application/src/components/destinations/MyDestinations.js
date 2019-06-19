@@ -1,6 +1,8 @@
 import React from 'react';
 import DestinationCard from './DestinationCard';
 import { connect } from 'react-redux'
+import CardColumns from 'react-bootstrap/CardColumns'
+
 
 const MyDestinations = props => {
 
@@ -9,7 +11,9 @@ const MyDestinations = props => {
     null
 
   return (
-    destinationCards
+    <CardColumns>
+    {destinationCards}
+  </CardColumns>
   )
 }
 

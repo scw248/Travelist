@@ -46,8 +46,7 @@ const NavigationBar = ({ currentUser }) => {
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
-        </Navbar>
-        :
+        </Navbar> :
         <Navbar expand="lg">
           <Navbar.Brand></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
