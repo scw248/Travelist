@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Login from '../components/Login'
-import Logout from '../components/Logout'
 import { Link } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap'
+import Logout from '../components/Logout'
 import styled from 'styled-components'
-import Signup from '../components/Signup';
+
 
 const Styles = styled.div`
   .navbar {
@@ -41,16 +40,32 @@ const NavigationBar = ({ currentUser }) => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                {<Logout />}
+                <Nav.Link>
+                  <Link to="/api/v1/logout">Logout</Link>
+                </Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
         :
-        <React.Fragment>
-          <Login />
-          <Signup />
-        </React.Fragment>
+        <Navbar expand="lg">
+          <Navbar.Brand></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              <Nav.Item>
+                <Nav.Link>
+                  <Link to="/api/v1/signup">Signup</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>
+                  <Link to="/api/v1/login">Login</Link>
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       }
     </Styles>
   )
