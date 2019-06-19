@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const MyDestinationsContainer = ({ currentUser }) => {
   return (
     <div className="DestinationsContainer">
-      {currentUser ? <p><MyDestinations /></p> : ""}
+      {currentUser ? <p><MyDestinations /> <DestinationInput /></p> : ""}
 
     </div>
   )
