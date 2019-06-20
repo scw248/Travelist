@@ -8,7 +8,7 @@ const MyDestinationsContainer = ({ currentUser }) => {
   return (
     <div className="DestinationsContainer">
       {currentUser ?
-        <p><DestinationInput addRestaurant={this.props.addDestination} />
+        <p><DestinationInput addDestination={addDestination} />
           <MyDestinations /> </p>
         : ""}
 

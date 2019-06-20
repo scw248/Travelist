@@ -1,8 +1,11 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 
-const DestinationCard = ({ destination }) => {
+const DestinationCard = ({ destination, deleteDestination }) => {
+
+
   return (
     <React.Fragment>
       <Card style={{ width: '18rem' }}>
@@ -19,7 +22,13 @@ const DestinationCard = ({ destination }) => {
               <strong>Description:</strong> {destination.attributes.description}
             </div>
           </Card.Text>
-          <Button variant="primary">Pin It!</Button>
+          <ButtonToolbar>
+            <Button variant="primary">Pin It!</Button>
+          </ButtonToolbar>
+          <br />
+          <ButtonToolbar>
+            <Button onClick={() => deleteDestination(destination.id)} variant="danger" size="sm">Delete</Button>
+          </ButtonToolbar>
           {/* <Button variant="secondary">Up Vote</Button>
           <Button variant="secondary">Down Vote</Button> */}
           {/* This will be an add-on feature at a later time with destination.attributes.votes  */}
