@@ -4,7 +4,6 @@ import currentUserReducer from './reducers/currentUserReducer'
 import loginFormReducer from './reducers/loginFormReducer'
 import thunk from 'redux-thunk'
 import destinationsReducer from './reducers/destinationsReducer.js';
-import myDestinationsReducer from './reducers/myDestinationsReducer.js';
 import signupFormReducer from './reducers/signupFormReducer.js';
 import destinationFormReducer from './reducers/destinationFormReducer.js';
 
@@ -13,7 +12,6 @@ const reducer = combineReducers({
   currentUser: currentUserReducer,
   loginForm: loginFormReducer,
   destinations: destinationsReducer,
-  myDestinations: myDestinationsReducer,
   signupForm: signupFormReducer,
   destinationForm: destinationFormReducer
 })

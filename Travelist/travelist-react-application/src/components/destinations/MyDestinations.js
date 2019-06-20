@@ -2,7 +2,7 @@ import React from 'react';
 import DestinationCard from './DestinationCard';
 import { connect } from 'react-redux'
 import CardColumns from 'react-bootstrap/CardColumns'
-import { deleteDestination } from '../../actions/myDestinationActions'
+import { deleteDestination } from '../../actions/destinationActions'
 
 
 const MyDestinations = props => {

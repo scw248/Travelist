@@ -19,7 +19,7 @@ export const resetDestinationForm = () => {
   }
 }
 
-//asynchronous actins
+//asynchronous actions
 export const addDestination = formData => {
   return dispatch => {
     const destinationInfo = {
@@ -38,8 +38,6 @@ export const addDestination = formData => {
         if (response.error) {
           alert(response.error)
         } else {
-          debugger
-          //dispatch(updateDestinationForm(destinationInfo))
           dispatch(newDestination(response.data))
           dispatch(resetDestinationForm())
         }

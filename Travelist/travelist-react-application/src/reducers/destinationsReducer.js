@@ -4,6 +4,8 @@ export default (state = [], action) => {
       return action.destinations
     case "NEW_DESTINATION":
       return [...state, action.destination]
+    case "REMOVE_DESTINATION":
+      return state.filter(destination => destination.id !== action.id);
     default:
       return state
   }
