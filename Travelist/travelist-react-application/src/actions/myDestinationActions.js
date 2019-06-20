@@ -6,7 +6,7 @@ export const setMyDestinations = destinations => {
   }
 }
 
-export const addDestination = data => {
+export const newDestination = data => {
   return {
     type: "ADD_DESTINATION",
     data
@@ -44,7 +44,7 @@ export const getMyDestinations = () => {
 }
 
 
-export const newDestination = data => {
+export const addDestination = data => {
   return dispatch => {
     const destinationInfo = {
       data: data
@@ -69,7 +69,7 @@ export const newDestination = data => {
   }
 }
 
-export const deleteHome = id => {
+export const deleteDestination = id => {
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/users/:userId/destinations/:destinationId`, {
       credentials: "include",
