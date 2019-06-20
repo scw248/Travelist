@@ -1,6 +1,3 @@
-import { getDestinations } from "./destinationActions"
-import { getMyDestinations } from "./myDestinationActions"
-
 //synchronous actions
 export const updateDestinationForm = formData => {
   return {
@@ -21,7 +18,7 @@ export const addDestination = formData => {
     const destinationInfo = {
       formData: formData
     }
-    return fetch("http://localhost:3000/api/v1/destinations", {
+    return fetch(`http://localhost:3000/api/v1/users/:userId/destinations`, {
       credentials: "include",
       method: "POST",
       headers: {
@@ -34,8 +31,7 @@ export const addDestination = formData => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(getDestinations())
-          dispatch(getMyDestinations())
+          dispatch(updateDestinationForm())
           dispatch(resetDestinationForm())
         }
       })

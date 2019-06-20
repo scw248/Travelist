@@ -6,6 +6,20 @@ export const setMyDestinations = destinations => {
   }
 }
 
+export const addDestination = data => {
+  return {
+    type: "ADD_DESTINATION",
+    data
+  }
+}
+
+export const removeDestination = id => {
+  return {
+    type: "REMOVE_DESTINATION",
+    id
+  }
+}
+
 // async actions
 export const getMyDestinations = () => {
   return dispatch => {

@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap'
-import Logout from '../components/Logout'
 import styled from 'styled-components'
 
 
@@ -46,7 +45,8 @@ const NavigationBar = ({ currentUser }) => {
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
-        </Navbar> :
+        </Navbar>
+        :
         <Navbar expand="lg">
           <Navbar.Brand></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
