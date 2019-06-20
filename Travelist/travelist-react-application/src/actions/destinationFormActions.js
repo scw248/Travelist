@@ -6,6 +6,13 @@ export const updateDestinationForm = formData => {
   }
 }
 
+export const newDestination = destination => {
+  return {
+    type: "NEW_DESTINATION",
+    destination
+  }
+}
+
 export const resetDestinationForm = () => {
   return {
     type: "RESET_DESTINATION_FORM"
@@ -16,9 +23,9 @@ export const resetDestinationForm = () => {
 export const addDestination = formData => {
   return dispatch => {
     const destinationInfo = {
-      formData: formData
+      ...formData
     }
-    return fetch(`http://localhost:3000/api/v1/users/:userId/destinations`, {
+    return fetch(`http://localhost:3000/api/v1/destinations`, {
       credentials: "include",
       method: "POST",
       headers: {
@@ -31,7 +38,9 @@ export const addDestination = formData => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(updateDestinationForm())
+          debugger
+          //dispatch(updateDestinationForm(destinationInfo))
+          dispatch(newDestination(response.data))
           dispatch(resetDestinationForm())
         }
       })

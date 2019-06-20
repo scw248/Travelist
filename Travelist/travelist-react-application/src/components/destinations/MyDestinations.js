@@ -24,7 +24,7 @@ const MyDestinations = props => {
 
 const mapStateToProps = state => {
   return {
-    myDestinations: state.myDestinations
+    myDestinations: state.destinations.filter(d => d.attributes.user_id == state.currentUser.id)
   }
 }
 
