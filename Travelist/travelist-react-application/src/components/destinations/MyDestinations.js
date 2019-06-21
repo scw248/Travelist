@@ -6,13 +6,12 @@ import { deleteDestination } from '../../actions/destinationActions'
 
 
 const MyDestinations = props => {
-
   const destinationCards = props.myDestinations.length > 0 ?
     props.myDestinations.map(destination =>
       <DestinationCard
         destination={destination}
         key={destination.id}
-        deleteDestination={() => this.props.deleteDestination(destination.id)} />) :
+        deleteDestination={() => props.deleteDestination(destination.id)} />) :
     null
 
   return (

@@ -38,7 +38,7 @@ export const getDestinations = () => {
 
 export const deleteDestination = id => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/users/:userId/destinations/:destinationId`, {
+    return fetch(`http://localhost:3000/api/v1/users/:userId/destinations/${id}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
@@ -57,3 +57,4 @@ export const deleteDestination = id => {
       })
   }
 }
+

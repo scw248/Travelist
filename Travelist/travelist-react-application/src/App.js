@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUserActions'
 import DestinationsContainer from './containers/DestinationsContainer';
@@ -11,6 +11,7 @@ import { Jumbotron } from './components/Jumbotron';
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Logout from './components/Logout'
+import { logout } from "./actions/currentUserActions.js"
 
 class App extends Component {
 
@@ -28,9 +29,9 @@ class App extends Component {
             <Switch>
               <Route exact path="/api/v1/destinations" component={DestinationsContainer} />
               <Route path={`/api/v1/users/:currentUserId/destinations`} component={MyDestinationsContainer} />
-              <Route exact path='/api/v1/signup' component={Signup} />
-              <Route exact path='/api/v1/login' component={Login} />
-              <Route exact path='/api/v1/logout' component={Logout} />
+              <Route exact path='/api/v1/signup' render={() => (this.props.currentUser ? (<Redirect to="/api/v1/destinations" />) : (<Signup />))} />
+              <Route exact path='/api/v1/login' render={() => (this.props.currentUser ? (<Redirect to="/api/v1/destinations" />) : (<Login />))} />
+              <Route exact path='/api/v1/logout' render={() => (this.props.currentUser ? (<Logout />) : (<Redirect to="/api/v1/login" />))} />
               <Route component={NoMatch} />
             </Switch>
           </Layout>
@@ -40,7 +41,12 @@ class App extends Component {
   }
 };
 
-export default connect(null, { getCurrentUser })(App)
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+export default connect(mapStateToProps, { getCurrentUser })(App)
 
 
 

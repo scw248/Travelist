@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap'
 import styled from 'styled-components'
+import { logout } from "../actions/currentUserActions.js"
 
 
 const Styles = styled.div`
