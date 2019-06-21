@@ -6,20 +6,19 @@ import { connect } from 'react-redux'
 
 const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
 
-
   return (
     <React.Fragment>
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={destination.attributes.image} />
         <Card.Body>
           <Card.Title>{destination.attributes.name}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{destination.attributes.city}, {destination.attributes.state} {destination.attributes.country}</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">{destination.attributes.city}, {destination.attributes.state} ({destination.attributes.country})</Card.Subtitle>
           <Card.Text>
             <div>
               <strong>Price:</strong> {destination.attributes.price}
               <br />
-              <strong>Categories:</strong> {destination.attributes.categories}
-              <br />
+              {/* <strong>Categories:</strong> {destination.attributes.categories}
+              <br /> WILL ADD THIS BACK IN WHEN CATEGORY COMPONENT IS BUILT*/}
               <strong>Description:</strong> {destination.attributes.description}
             </div>
           </Card.Text>
@@ -31,7 +30,7 @@ const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
           }
           {destination.attributes.user_id == currentUser.id ?
             <ButtonToolbar>
-              <Button onClick={() => deleteDestination(destination.id)} variant="danger" size="sm">Delete</Button>
+              <Button onClick={() => { deleteDestination(destination.id, currentUser) }} variant="danger" size="sm">Delete</Button>
             </ButtonToolbar>
             : ''
           }

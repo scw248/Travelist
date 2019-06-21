@@ -1,4 +1,4 @@
-
+import { connect } from 'react-redux'
 export const setDestinations = destinations => {
   return {
     type: 'SET_DESTINATIONS',
@@ -36,9 +36,9 @@ export const getDestinations = () => {
   }
 }
 
-export const deleteDestination = id => {
+export const deleteDestination = (id, currentUser) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/users/:userId/destinations/${id}`, {
+    return fetch(`http://localhost:3000/api/v1/users/${currentUser.id}/destinations/${id}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
@@ -57,4 +57,3 @@ export const deleteDestination = id => {
       })
   }
 }
-

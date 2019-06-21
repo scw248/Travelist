@@ -4,14 +4,13 @@ import { connect } from 'react-redux'
 import CardColumns from 'react-bootstrap/CardColumns'
 import { deleteDestination } from '../../actions/destinationActions'
 
-
 const MyDestinations = props => {
   const destinationCards = props.myDestinations.length > 0 ?
     props.myDestinations.map(destination =>
       <DestinationCard
         destination={destination}
         key={destination.id}
-        deleteDestination={() => props.deleteDestination(destination.id)} />) :
+        deleteDestination={props.deleteDestination} />) :
     null
 
   return (
