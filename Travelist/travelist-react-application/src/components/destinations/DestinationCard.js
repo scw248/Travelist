@@ -2,8 +2,9 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import { connect } from 'react-redux'
 
-const DestinationCard = ({ destination, deleteDestination }) => {
+const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
 
 
   return (
@@ -22,13 +23,18 @@ const DestinationCard = ({ destination, deleteDestination }) => {
               <strong>Description:</strong> {destination.attributes.description}
             </div>
           </Card.Text>
-          <ButtonToolbar>
-            <Button variant="primary">Pin It!</Button>
-          </ButtonToolbar>
-          <br />
-          <ButtonToolbar>
-            <Button onClick={() => deleteDestination(destination.id)} variant="danger" size="sm">Delete</Button>
-          </ButtonToolbar>
+          {destination.attributes.user_id != currentUser.id ?
+            <ButtonToolbar>
+              <Button variant="primary">Pin It!</Button>
+            </ButtonToolbar>
+            : ''
+          }
+          {destination.attributes.user_id == currentUser.id ?
+            <ButtonToolbar>
+              <Button onClick={() => deleteDestination(destination.id)} variant="danger" size="sm">Delete</Button>
+            </ButtonToolbar>
+            : ''
+          }
           {/* <Button variant="secondary">Up Vote</Button>
           <Button variant="secondary">Down Vote</Button> */}
           {/* This will be an add-on feature at a later time with destination.attributes.votes  */}
@@ -38,7 +44,13 @@ const DestinationCard = ({ destination, deleteDestination }) => {
   )
 }
 
-export default DestinationCard
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps)(DestinationCard)
 
 
 
