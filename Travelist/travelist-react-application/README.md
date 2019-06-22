@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Travelist
 
-## Available Scripts
+Tired of the same-old destinations?  Travelist has a community of of users sharing their favorite places to holiday for you to explore!
 
-In the project directory, you can run:
+Rails API and backend can be accessed here: https://github.com/scw248/Travelist-backend
 
-### `npm start`
+##Demo
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+##Usage
+This project is currently run on your local host.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Please fork and clone this repo then:
 
-### `npm run build`
+Run: $ bundle install
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Then: $ rake db:create && rake db:migrate
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+To run on your local machine: $ rake start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Shut down the server using control C.
 
-### `npm run eject`
+If you have issues you may need to install the react front end before trying to start the server again: $ cd client $ npm install $ cd .. $ rake start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Add destinations of your own or search the destinations added by others in the community!
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##Development
+This project was bootstrapped with Create React App.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You can learn more in the Create React App documentation.
 
-## Learn More
+After checking out the repo, you can run rails c for an interactive prompt that will allow you to experiment with the Rails back end.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The rails API and backend can be accessed at https://github.com/scw248/Travelist-backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/scw248/Travelist-React-Application/tree/master/Travelist/travelist-react-application. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+##License
+The gem is available as open source under the terms of the MIT License.

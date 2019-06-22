@@ -8,7 +8,7 @@ const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
 
   return (
     <React.Fragment>
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '22rem' }}>
         <Card.Img variant="top" src={destination.attributes.image} />
         <Card.Body>
           <Card.Title>{destination.attributes.name}</Card.Title>
@@ -22,12 +22,13 @@ const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
               <strong>Description:</strong> {destination.attributes.description}
             </div>
           </Card.Text>
-          {destination.attributes.user_id != currentUser.id ?
+          {/* {destination.attributes.user_id != currentUser.id ?
             <ButtonToolbar>
               <Button variant="primary">Pin It!</Button>
             </ButtonToolbar>
             : ''
-          }
+          } */}
+          {/* WILL ADD BACK IN ONCE PINNED_DESTINATION CONTROLLER, ACTION, REDUCER, STORE, ETC ARE CREATED */}
           {destination.attributes.user_id == currentUser.id ?
             <ButtonToolbar>
               <Button onClick={() => { deleteDestination(destination.id, currentUser) }} variant="danger" size="sm">Delete</Button>

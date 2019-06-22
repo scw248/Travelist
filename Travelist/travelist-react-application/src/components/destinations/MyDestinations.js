@@ -14,7 +14,7 @@ const MyDestinations = props => {
     null
 
   return (
-    <CardColumns>
+    <CardColumns >
       {destinationCards}
     </CardColumns>
   )
