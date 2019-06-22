@@ -1,14 +1,14 @@
-##Travelist
+## Travelist
 
 Tired of the same-old destinations?  Travelist has a community of of users sharing their favorite places to holiday for you to explore!
 
 Rails API and backend can be accessed here: https://github.com/scw248/Travelist-backend
 
-##Demo
+## Demo
 
+https://youtu.be/rqJtDQpDhAY
 
-
-##Usage
+## Usage
 This project is currently run on your local host.
 
 Please fork and clone this repo then:
@@ -28,7 +28,7 @@ Open http://localhost:3000 to view it in the browser.
 
 Add destinations of your own or search the destinations added by others in the community!
 
-##Development
+## Development
 This project was bootstrapped with Create React App.
 
 You can learn more in the Create React App documentation.
@@ -37,8 +37,8 @@ After checking out the repo, you can run rails c for an interactive prompt that 
 
 The rails API and backend can be accessed at https://github.com/scw248/Travelist-backend
 
-##Contributing
+## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/scw248/Travelist-React-Application/tree/master/Travelist/travelist-react-application. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-##License
+## License
 The gem is available as open source under the terms of the MIT License.
