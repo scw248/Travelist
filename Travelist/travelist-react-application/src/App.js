@@ -11,7 +11,6 @@ import { Jumbotron } from './components/Jumbotron';
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Logout from './components/Logout'
-import { logout } from "./actions/currentUserActions.js"
 
 class App extends Component {
 
