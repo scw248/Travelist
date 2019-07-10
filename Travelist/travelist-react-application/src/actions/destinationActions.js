@@ -13,6 +13,27 @@ export const removeDestination = id => {
   }
 }
 
+export const setPinnedDestinations = pinned_destinations => {
+  return {
+    type: 'SET_PINNED_DESTINATIONS',
+    pinned_destinations
+  }
+}
+
+export const newPinnedDestination = pinned_destination => {
+  return {
+    type: "NEW_DESTINATION",
+    pinned_destination
+  }
+}
+
+export const removePinnedDestination = destination_id => {
+  return {
+    type: "REMOVE_PINNED_DESTINATION",
+    destination_id
+  }
+}
+
 //asynchronous action creators
 export const getDestinations = () => {
   return dispatch => {
