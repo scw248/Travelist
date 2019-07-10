@@ -10,7 +10,6 @@ import { Layout } from './components/Layout'
 import { Jumbotron } from './components/Jumbotron';
 import Login from './components/Login'
 import Signup from './components/Signup'
-import Logout from './components/Logout'
 
 class App extends Component {
 
@@ -30,7 +29,7 @@ class App extends Component {
               <Route path={`/api/v1/users/:currentUserId/destinations`} component={MyDestinationsContainer} />
               <Route exact path='/api/v1/signup' render={() => (this.props.currentUser ? (<Redirect to="/api/v1/destinations" />) : (<Signup />))} />
               <Route exact path='/api/v1/login' render={() => (this.props.currentUser ? (<Redirect to="/api/v1/destinations" />) : (<Login />))} />
-              <Route exact path='/api/v1/logout' render={() => (this.props.currentUser ? (<Logout />) : (<Redirect to="/api/v1/login" />))} />
+              {/* <Route exact path='/api/v1/logout' render={logout} /> */}
               <Route component={NoMatch} />
             </Switch>
           </Layout>
