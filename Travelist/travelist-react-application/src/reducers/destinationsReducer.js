@@ -6,10 +6,12 @@ export default (state = [], action) => {
       return [...state, action.destination]
     case "REMOVE_DESTINATION":
       return state.filter(destination => destination.id !== action.id);
-    case "ADD_PIN":
+    case "SET_PINNED_DESTINATIONS":
+      return action.pinned_destinations
+    case "ADD_PINNED_DESTINATION":
       return [...state, action.pinned_destination]
-    case "REMOVE_PIN":
-      return state.filter(pin => pin.destination_id !== action.id)
+    case "REMOVE_PINNNED DESTINATION":
+      return state.filter(pin => pin.destination_id !== action.destination_id)
     default:
       return state
   }
