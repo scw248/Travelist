@@ -1,4 +1,4 @@
-import { connect } from 'react-redux'
+
 export const setDestinations = destinations => {
   return {
     type: 'SET_DESTINATIONS',
