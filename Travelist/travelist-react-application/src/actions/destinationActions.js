@@ -122,3 +122,29 @@ export const deletePinnedDestination = (id, currentUser) => {
       })
   }
 }
+
+//THIS IS NOT GOING TO WORK CORRECTLY BECAUSE WE'RE NOT GRABBING FORM DATA
+export const addPinnedDestination = (formData, currentUser) => {
+  return dispatch => {
+    const destinationInfo = {
+      ...formData
+    }
+    return fetch(`http://localhost:3000/api/v1/${currentUser.id}/pins`, {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(destinationInfo)
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(newPinnedDestination(response.data))
+        }
+      })
+      .catch(console.log)
+  }
+}
