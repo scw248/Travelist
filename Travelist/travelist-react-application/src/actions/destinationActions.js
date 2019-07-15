@@ -1,4 +1,4 @@
-
+//synchronous action creators
 export const setDestinations = destinations => {
   return {
     type: 'SET_DESTINATIONS',
@@ -34,7 +34,7 @@ export const removePinnedDestination = destination_id => {
   }
 }
 
-//asynchronous action creators
+//asynchronous action creators - PICK UP HERE TO SEE WHERE I'M FETCHING PINNED_DESTINATIONS FROM
 export const getDestinations = () => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/destinations", {
@@ -74,6 +74,50 @@ export const deleteDestination = (id, currentUser) => {
           alert(data.error)
         } else {
           dispatch(removeDestination(id))
+        }
+      })
+  }
+}
+
+export const getPinnedDestinations = () => {
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/pins", {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          console.log(response.data)
+          dispatch(setPinnedDestinations(response.data))
+        }
+      })
+      .catch(console.log)
+  }
+}
+
+export const deletePinnedDestination = (id, currentUser) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/users/${currentUser.id}/pins/${id}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(id)
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
+        } else {
+          dispatch(removePinnedDestination(id))
         }
       })
   }
