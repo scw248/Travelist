@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginFormActions"
 import { resetSignupForm } from "./signupFormActions"
-import { getDestinations } from "./destinationActions"
+import { getDestinations, getPinnedDestinations } from "./destinationActions"
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -37,6 +37,7 @@ export const login = credentials => {
           dispatch(setCurrentUser(resp.data))
           dispatch(resetLoginForm())
           dispatch(getDestinations())
+          dispatch(getPinnedDestinations())
         }
       })
       .catch(console.log)
@@ -96,6 +97,7 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(resp.data))
           dispatch(getDestinations())
+          dispatch(getPinnedDestinations())
         }
       })
       .catch(console.log)
