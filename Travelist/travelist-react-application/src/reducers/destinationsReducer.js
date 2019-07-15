@@ -11,7 +11,7 @@ export default (state = [], action) => {
     case "ADD_PINNED_DESTINATION":
       return [...state, action.pinned_destination]
     case "REMOVE_PINNNED DESTINATION":
-      return state.filter(pin => pin.destination_id !== action.destination_id)
+      return state.filter(pinned_destination => pinned_destination.id !== action.id)
     default:
       return state
   }
