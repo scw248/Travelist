@@ -19,7 +19,7 @@ const Styles = styled.div`
   }
 `
 
-const NavigationBar = ({ currentUser }) => {
+const NavigationBar = ({ currentUser, logout }) => {
 
   return (
     <Styles>
@@ -41,7 +41,7 @@ const NavigationBar = ({ currentUser }) => {
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link>
-                  <Link to="/api/v1/logout">Logout</Link>
+                  <a onClick={logout} href="/">Logout</a>
                 </Nav.Link>
               </Nav.Item>
             </Nav>
@@ -77,4 +77,4 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-export default connect(mapStateToProps)(NavigationBar)
+export default connect(mapStateToProps, { logout })(NavigationBar)

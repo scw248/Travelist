@@ -44,6 +44,7 @@ const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
   )
 }
 
+
 const mapStateToProps = ({ currentUser }) => {
   return {
     currentUser
