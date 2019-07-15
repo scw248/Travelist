@@ -27,10 +27,10 @@ export const newPinnedDestination = pinned_destination => {
   }
 }
 
-export const removePinnedDestination = destination_id => {
+export const removePinnedDestination = pinned_destination_id => {
   return {
     type: "REMOVE_PINNED_DESTINATION",
-    destination_id
+    pinned_destination_id
   }
 }
 
