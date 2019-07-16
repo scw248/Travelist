@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginFormActions"
 import { resetSignupForm } from "./signupFormActions"
-import { getDestinations, getPinnedDestinations } from "./destinationActions"
+import { getDestinations } from "./destinationActions"
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -16,6 +16,19 @@ export const clearCurrentUser = () => {
   }
 }
 
+export const newPinnedDestination = pinned_destination => {
+  return {
+    type: "NEW_PINNED_DESTINATION",
+    pinned_destination
+  }
+}
+
+export const removePinnedDestination = pinned_destination_id => {
+  return {
+    type: "REMOVE_PINNED_DESTINATION",
+    pinned_destination_id
+  }
+}
 
 //asynchronous action creators
 export const login = credentials => {
@@ -37,7 +50,6 @@ export const login = credentials => {
           dispatch(setCurrentUser(resp.data))
           dispatch(resetLoginForm())
           dispatch(getDestinations())
-          dispatch(getPinnedDestinations())
         }
       })
       .catch(console.log)
@@ -97,7 +109,51 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(resp.data))
           dispatch(getDestinations())
-          dispatch(getPinnedDestinations())
+        }
+      })
+      .catch(console.log)
+  }
+}
+
+export const deletePinnedDestination = (id, currentUser) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/users/${currentUser.id}/pins/${id}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(id)
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
+        } else {
+          dispatch(removePinnedDestination(id))
+        }
+      })
+  }
+}
+
+export const addPinnedDestination = (destId, currentUser) => {
+  return dispatch => {
+
+    return fetch(`http://localhost:3000/api/v1/${currentUser.id}/pins`, {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ destination_id: destId })
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(newPinnedDestination(response.data))
         }
       })
       .catch(console.log)
