@@ -4,19 +4,21 @@ export default (state = null, action) => {
       return action.user
     case "CLEAR_CURRENT_USER":
       return null
+    case "SET_PINNED_DESTINATIONS":
+      return { ...state, relationships: { ...state.relationships, pins: action.pinned_destinations } }
     case "ADD_PINNED_DESTINATION":
       return {
         ...state,
         relationships: {
           ...state.relationships,
-          pinned_destinations: {
-            data: [
-              ...state.relationships.pinned_destinations.data,
-              action.pinned_destination
-            ]
-          }
+          pins: [
+            ...state.relationships.pins,
+            { id: null, type: "pin", attributes: { destination_id: null } }
+            //add what debugger returns for pinned_destination for action. for id and destination_id
+          ]
         }
       }
+
     case "REMOVE_PINNNED DESTINATION":
       return {
         ...state,
@@ -24,7 +26,8 @@ export default (state = null, action) => {
           ...state.relationships,
           pinned_destinations: {
             data: [
-              ...state.relationships.pinned_destinations.data.filter(pinned_destination => pinned_destination.id !== action.id)]
+              ...state.relationships.pins.filter(pin => pin.id !== action.id)]
+            //Check that action.id is correct or if action.destination_id when inspecting debugger
           }
         }
       }
