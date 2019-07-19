@@ -18,7 +18,7 @@ const MyDestinations = props => {
     props.myPinnedDestinations.map(pinned_destination =>
       <DestinationCard
         destination={pinned_destination}
-        key={pinned_destination.id}
+        key={pinned_destination.attributes.destination_id}
         deletePinnedDestination={props.deletePinnedDestination}
         addPinnedDestination={props.addPinnedDestination} />) :
     null
@@ -34,7 +34,7 @@ const MyDestinations = props => {
 const mapStateToProps = state => {
   return {
     myDestinations: state.destinations.filter(d => d.attributes.user_id == state.currentUser.id),
-    myPinnedDestinations: state.currentUser.relationships.pinned_destinations.data
+    myPinnedDestinations: state.currentUser.pins
   }
 }
 
