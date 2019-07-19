@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import { connect } from 'react-redux'
 
-const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
+const DestinationCard = ({ destination, deleteDestination, addPinnedDestination, currentUser }) => {
 
   return (
     <React.Fragment>
@@ -22,13 +22,12 @@ const DestinationCard = ({ destination, deleteDestination, currentUser }) => {
               <strong>Description:</strong> {destination.attributes.description}
             </div>
           </Card.Text>
-          {/* {destination.attributes.user_id != currentUser.id ?
+          {destination.attributes.user_id != currentUser.id ?
             <ButtonToolbar>
-              <Button variant="primary">Pin It!</Button>
+              <Button onClick={() => { addPinnedDestination(destination.id, currentUser) }} variant="primary" size="sm">Pin it!</Button>
             </ButtonToolbar>
             : ''
-          } */}
-          {/* WILL ADD BACK IN ONCE PINNED_DESTINATION CONTROLLER, ACTION, REDUCER, STORE, ETC ARE CREATED */}
+          }
           {destination.attributes.user_id == currentUser.id ?
             <ButtonToolbar>
               <Button onClick={() => { deleteDestination(destination.id, currentUser) }} variant="danger" size="sm">Delete</Button>
