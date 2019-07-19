@@ -1,5 +1,6 @@
 import React from 'react';
 import DestinationCard from './DestinationCard';
+import PinnedDestinationCard from './PinnedDestinationCard'
 import { connect } from 'react-redux'
 import CardColumns from 'react-bootstrap/CardColumns'
 import { deleteDestination } from '../../actions/destinationActions'
@@ -11,16 +12,17 @@ const MyDestinations = props => {
       <DestinationCard
         destination={destination}
         key={destination.id}
-        deleteDestination={props.deleteDestination} />) :
+        deleteDestination={props.deleteDestination}
+        addPinnedDestination={props.addPinnedDestination} />) :
     null
 
   const pinnedDestinationCards = props.myPinnedDestinations.length > 0 ?
     props.myPinnedDestinations.map(pinned_destination =>
-      <DestinationCard
-        destination={pinned_destination}
-        key={pinned_destination.attributes.destination_id}
+      <PinnedDestinationCard
+        pin={pinned_destination}
+        key={pinned_destination.id}
         deletePinnedDestination={props.deletePinnedDestination}
-        addPinnedDestination={props.addPinnedDestination} />) :
+         />) :
     null
 
   return (
@@ -34,7 +36,7 @@ const MyDestinations = props => {
 const mapStateToProps = state => {
   return {
     myDestinations: state.destinations.filter(d => d.attributes.user_id == state.currentUser.id),
-    myPinnedDestinations: state.currentUser.pins
+    myPinnedDestinations: state.currentUser.relationships.pins
   }
 }
 
