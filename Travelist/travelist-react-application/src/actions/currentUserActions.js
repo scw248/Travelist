@@ -172,7 +172,7 @@ export const deletePinnedDestination = (id, currentUser) => {
 export const addPinnedDestination = (destId, currentUser) => {
   return dispatch => {
 
-    return fetch(`http://localhost:3000/api/v1/${currentUser.id}/pins`, {
+    return fetch(`http://localhost:3000/api/v1/users/${currentUser.id}/pins`, {
       credentials: "include",
       method: "POST",
       headers: {
