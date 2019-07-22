@@ -3,6 +3,7 @@ import DestinationCard from './DestinationCard';
 import { connect } from 'react-redux'
 import CardColumns from 'react-bootstrap/CardColumns'
 import { deleteDestination } from '../../actions/destinationActions'
+import { addPinnedDestination } from '../../actions/currentUserActions'
 
 const Destinations = props => {
   const destinationCards = props.destinations.length > 0 ?
@@ -10,7 +11,8 @@ const Destinations = props => {
       <DestinationCard
         destination={destination}
         key={destination.id}
-        deleteDestination={props.deleteDestination} />) :
+        deleteDestination={props.deleteDestination}
+        addPinnedDestination={props.addPinnedDestination} />) :
     null
 
   return (
@@ -27,5 +29,5 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { deleteDestination })(Destinations)
+export default connect(mapStateToProps, { deleteDestination, addPinnedDestination })(Destinations)
 
