@@ -5,7 +5,6 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import { connect } from 'react-redux'
 
 const DestinationCard = ({ destination, deleteDestination, addPinnedDestination, currentUser }) => {
-
   return (
     <React.Fragment>
       <Card style={{ width: '22rem' }}>
@@ -22,7 +21,8 @@ const DestinationCard = ({ destination, deleteDestination, addPinnedDestination,
               <strong>Description:</strong> {destination.attributes.description}
             </div>
           </Card.Text>
-          {destination.attributes.user_id != currentUser.id ?
+          {/* PICK UP HERE TO FIGURE OUT HOW TO MAKE SURE 'PIN IT' BUTTON DOES NOT SHOW UP AFTER ALREADY BEING CLICKED, BUT OTHERWISE DOES */}
+          {(destination.attributes.user_id != currentUser.id) && (currentUser.relationships.pins.forEach(pin => pin.attributes.destination_id !== destination.id)) ?
             <ButtonToolbar>
               <Button onClick={() => { addPinnedDestination(destination.id, currentUser) }} variant="primary" size="sm">Pin it!</Button>
             </ButtonToolbar>
