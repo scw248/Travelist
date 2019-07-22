@@ -6,14 +6,14 @@ export default (state = null, action) => {
       return null
     case "SET_PINNED_DESTINATIONS":
       return { ...state, relationships: { ...state.relationships, pins: action.pinned_destinations } }
-    case "ADD_PINNED_DESTINATION":
+    case "NEW_PINNED_DESTINATION":
       return {
         ...state,
         relationships: {
           ...state.relationships,
           pins: [
             ...state.relationships.pins,
-            { id: null, type: "pin", attributes: { destination_id: null } }
+            { id: action.id, type: "pin", attributes: { destination_id: action.destination_id } }
             //add what debugger returns for pinned_destination for action. for id and destination_id
           ]
         }
