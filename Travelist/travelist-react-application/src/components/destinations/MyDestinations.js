@@ -12,8 +12,7 @@ const MyDestinations = props => {
       <DestinationCard
         destination={destination}
         key={destination.id}
-        deleteDestination={props.deleteDestination}
-        addPinnedDestination={props.addPinnedDestination} />) :
+        deleteDestination={props.deleteDestination} />) :
     null
 
   const pinnedDestinationCards = props.myPinnedDestinations.length > 0 ?
@@ -22,7 +21,7 @@ const MyDestinations = props => {
         pin={pinned_destination}
         key={pinned_destination.id}
         deletePinnedDestination={props.deletePinnedDestination}
-         />) :
+      />) :
     null
 
   return (
