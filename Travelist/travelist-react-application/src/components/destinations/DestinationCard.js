@@ -21,8 +21,8 @@ const DestinationCard = ({ destination, deleteDestination, addPinnedDestination,
               <strong>Description:</strong> {destination.attributes.description}
             </div>
           </Card.Text>
-          {/* PICK UP HERE TO FIGURE OUT HOW TO MAKE SURE 'PIN IT' BUTTON DOES NOT SHOW UP AFTER ALREADY BEING CLICKED, BUT OTHERWISE DOES */}
-          {(destination.attributes.user_id != currentUser.id) && (currentUser.relationships.pins.forEach(pin => pin.attributes.destination_id !== destination.id)) ?
+          {(destination.attributes.user_id != currentUser.id &&
+            currentUser.relationships.pins.every(pin => pin.attributes.destination_id != destination.id)) ?
             <ButtonToolbar>
               <Button onClick={() => { addPinnedDestination(destination.id, currentUser) }} variant="primary" size="sm">Pin it!</Button>
             </ButtonToolbar>
