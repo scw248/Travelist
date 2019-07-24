@@ -13,7 +13,15 @@ export default (state = null, action) => {
           ...state.relationships,
           pins: [
             ...state.relationships.pins,
-            { id: action.id, type: "pin", attributes: { destination_id: action.destination_id } }
+            { id: action.id, type: "pin", attributes: { 
+            destination_id: action.destination_id, 
+            name: action.name,
+            city: action.city,
+            state: action.state,
+            country: action.country,
+            price: action.price,
+            description: action.description,
+            image: action.image} }
             //add what debugger returns for pinned_destination for action. for id and destination_id
           ]
         }
