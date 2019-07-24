@@ -24,17 +24,16 @@ export const setPinnedDestinations = pinned_destinations => {
 }
 
 export const newPinnedDestination = pinned_destination => {
-  debugger
   return {
     type: "NEW_PINNED_DESTINATION",
     pinned_destination
   }
 }
 
-export const removePinnedDestination = pinned_destination_id => {
+export const removePinnedDestination = id => {
   return {
     type: "REMOVE_PINNED_DESTINATION",
-    pinned_destination_id
+    id
   }
 }
 
@@ -127,7 +126,7 @@ export const getCurrentUser = () => {
 
 export const getPinnedDestinations = (currentUser) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/users/${currentUser.id}/pins`, {
+    return fetch(`http://localhost:3000/api/v1/users/${currentUser}/pins`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -164,6 +163,7 @@ export const deletePinnedDestination = (id, currentUser) => {
           alert(data.error)
         } else {
           dispatch(removePinnedDestination(id))
+          dispatch(getPinnedDestinations())
         }
       })
   }
@@ -186,6 +186,7 @@ export const addPinnedDestination = (destId, currentUser) => {
           alert(response.error)
         } else {
           dispatch(newPinnedDestination(response.data))
+          dispatch(getPinnedDestinations())
         }
       })
       .catch(console.log)
