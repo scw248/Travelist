@@ -22,7 +22,7 @@ export default (state = null, action) => {
             price: action.price,
             description: action.description,
             image: action.image} }
-            //add what debugger returns for pinned_destination for action. for id and destination_id
+            // PICK UP HERE TO FIGURE OUT HOW TO GET ALL DESTINATION ATTRIBUTES INTO PIN
           ]
         }
       }

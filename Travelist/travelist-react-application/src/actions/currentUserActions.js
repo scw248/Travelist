@@ -57,7 +57,6 @@ export const login = credentials => {
           dispatch(setCurrentUser(resp.data))
           dispatch(resetLoginForm())
           dispatch(getDestinations())
-          dispatch(getPinnedDestinations())
         }
       })
       .catch(console.log)

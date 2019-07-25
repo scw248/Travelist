@@ -9,7 +9,7 @@ const PinnedDestinationCard = ({ pin, deletePinnedDestination, currentUser }) =>
   return (
     <React.Fragment>
       <Card style={{ width: '22rem' }}>
-        <Card.Img variant="top" src={pin.attributes.destination_id.image} />
+        <Card.Img variant="top" src={pin.attributes.image} />
         {/* FIGURE OUT HOW TO RENDER PIN DESTINATION ATTRIBUTES WITH DESTINATION_ID */}
         <Card.Body>
           <Card.Title>{pin.attributes.name}</Card.Title>
