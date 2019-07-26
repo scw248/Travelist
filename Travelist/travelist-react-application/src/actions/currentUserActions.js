@@ -137,13 +137,32 @@ export const getPinnedDestinations = (currentUser) => {
         if (response.error) {
           alert(response.error)
         } else {
-          console.log(response.data)
-          dispatch(setPinnedDestinations(response.data))
+          console.log(response.data);
+          return response.data.map(pin => pin.attributes.destination_id)
         }
       })
-      .catch(console.log)
+      .then(destination_id => {
+        return fetch(`http://localhost:3000/api/v1/destinations/${destination_id}`, {
+          credentials: "include",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          },
+        })
+          .then(r => r.json())
+          .then(response => {
+            if (response.error) {
+              alert(response.error)
+            } else {
+              console.log(response.data)
+              dispatch(setPinnedDestinations(response.data))
+            }
+          })
+          .catch(console.log)
+      })
   }
 }
+
 
 export const deletePinnedDestination = (id, currentUser) => {
   return dispatch => {
