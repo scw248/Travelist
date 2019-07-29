@@ -9,21 +9,20 @@ const PinnedDestinationCard = ({ pin, deletePinnedDestination, currentUser }) =>
   return (
     <React.Fragment>
       <Card style={{ width: '22rem' }}>
-        <Card.Img variant="top" src={pin.attributes.image} />
-        {/* FIGURE OUT HOW TO RENDER PIN DESTINATION ATTRIBUTES WITH DESTINATION_ID */}
+        <Card.Img variant="top" src={pin.image} />
         <Card.Body>
-          <Card.Title>{pin.attributes.name}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{pin.attributes.city}, {pin.attributes.state} ({pin.attributes.country})</Card.Subtitle>
+          <Card.Title>{pin.name}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{pin.city}, {pin.state} ({pin.country})</Card.Subtitle>
           <Card.Text>
             <div>
-              <strong>Price:</strong> {pin.attributes.price}
+              <strong>Price:</strong> {pin.price}
               <br />
               {/* <strong>Categories:</strong> {destination.attributes.categories}
               <br /> WILL ADD THIS BACK IN WHEN CATEGORY COMPONENT IS BUILT*/}
-              <strong>Description:</strong> {pin.attributes.description}
+              <strong>Description:</strong> {pin.description}
             </div>
           </Card.Text>
-          {pin.attributes.user_id == currentUser.id ?
+          {pin.user_id == currentUser.id ?
             <ButtonToolbar>
               <Button onClick={() => { deletePinnedDestination(pin.id, currentUser) }} variant="danger" size="sm">Remove Pin</Button>
             </ButtonToolbar>
