@@ -116,7 +116,7 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(resp.data))
           dispatch(getDestinations())
-          dispatch(getPinnedDestinations(resp.data.id))
+          dispatch(getPinnedDestinations())
         }
       })
       .catch(console.log)
