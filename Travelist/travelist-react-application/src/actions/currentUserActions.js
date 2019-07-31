@@ -56,7 +56,6 @@ export const login = credentials => {
         } else {
           dispatch(setCurrentUser(resp.data))
           dispatch(resetLoginForm())
-          dispatch(getDestinations())
         }
       })
       .catch(console.log)
@@ -82,7 +81,6 @@ export const signup = credentials => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          dispatch(getDestinations())
           dispatch(resetSignupForm())
         }
       })
@@ -154,7 +152,7 @@ export const getPinnedDestinations = (currentUser) => {
             if (response.error) {
               alert(response.error)
             } else {
-              console.log(response.data)
+              console.log(response)
               dispatch(setPinnedDestinations(response.data))
             }
           })
