@@ -150,7 +150,6 @@ export const getPinnedDestinations = (currentUser) => {
                   alert(response.error)
                 } else {
                   console.log(response)
-                  debugger
                   dispatch(setPinnedDestinations(response))
                 }
               })
