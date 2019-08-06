@@ -135,26 +135,27 @@ export const getPinnedDestinations = (currentUser) => {
         if (response.error) {
           alert(response.error)
         } else {
-          console.log(response.data);
-          return response.data.map(pin =>
+          let pins = [];
+          response.data.forEach((pin) => {
             fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
               credentials: "include",
               method: "GET",
               headers: {
                 "Content-Type": "application/json"
               },
-            })
-              .then(r => r.json())
+            }).then(response => response.json())
               .then(response => {
                 if (response.error) {
                   alert(response.error)
                 } else {
                   console.log(response)
-                  dispatch(setPinnedDestinations(response))
+                  pins.push(response)
                 }
               })
-              .catch(console.log)
-          )
+          })
+          // .catch(console.log)
+          debugger
+          dispatch(setPinnedDestinations(pins))
         }
       })
   }
