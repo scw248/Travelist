@@ -137,7 +137,7 @@ export const getPinnedDestinations = (currentUser) => {
         } else {
           let pins = [];
           response.data.forEach((pin) => {
-            fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
+            return fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
               credentials: "include",
               method: "GET",
               headers: {
@@ -153,9 +153,9 @@ export const getPinnedDestinations = (currentUser) => {
                 }
               })
           })
-          // .catch(console.log)
-          debugger
-          dispatch(setPinnedDestinations(pins))
+          Promise.all(pins)
+            .then(pins => dispatch(setPinnedDestinations(pins)))
+            .catch(console.log)
         }
       })
   }
