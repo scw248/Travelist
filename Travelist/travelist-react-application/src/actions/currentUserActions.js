@@ -135,32 +135,48 @@ export const getPinnedDestinations = (currentUser) => {
         if (response.error) {
           alert(response.error)
         } else {
-          let pins = [];
           response.data.forEach((pin) => {
-            return fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
-              credentials: "include",
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json"
-              },
-            }).then(response => response.json())
-              .then(response => {
-                if (response.error) {
-                  alert(response.error)
-                } else {
-                  console.log(response)
-                  pins.push(response)
-                  console.log(pins)
-                }
-              })
-          })
-          setTimeout(() => dispatch(setPinnedDestinations(pins)))
-          // .catch(console.log)
+            let pins = []
+            return async function grabEachPinnedDestination(pin) {
+              await fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
+                credentials: "include",
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+              }).then(response => response.json())
+                .then(response => {
+                  if (response.error) {
+                    alert(response.error)
+                  } else {
+                    console.log(response)
+                    pins.push(response)
+                  }
+                })
+            })
         }
-      })
-  }
+        dispatch(setPinnedDestinations(pins))
+      }
+})
+}
 }
 
+// const grabEachPinnedDestination = pin => {
+//   return fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
+//     credentials: "include",
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//   }).then(response => response.json())
+//     .then(response => {
+//       if (response.error) {
+//         alert(response.error)
+//       } else {
+//         console.log(response)
+//       }
+//     })
+// }
 
 export const deletePinnedDestination = (id, currentUser) => {
   return dispatch => {
