@@ -150,12 +150,12 @@ export const getPinnedDestinations = (currentUser) => {
                 } else {
                   console.log(response)
                   pins.push(response)
+                  console.log(pins)
                 }
               })
           })
-          Promise.all(pins)
-            .then(pins => dispatch(setPinnedDestinations(pins)))
-            .catch(console.log)
+          setTimeout(() => dispatch(setPinnedDestinations(pins)))
+          // .catch(console.log)
         }
       })
   }
