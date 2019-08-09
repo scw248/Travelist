@@ -137,44 +137,31 @@ export const getPinnedDestinations = (currentUser) => {
         } else {
           let pins = []
           response.data.forEach((pin) => {
-            return fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
-              credentials: "include",
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json"
-              },
-            }).then(response => response.json())
-              .then(response => {
-                if (response.error) {
-                  alert(response.error)
-                } else {
-                  console.log(response)
-                  pins.push(response)
-                }
-              })
+            pins.push(putEachPinInArray(pin))
           })
-          dispatch(setPinnedDestinations(pins))
+          debugger
+          setTimeout(dispatch(setPinnedDestinations(pins)), 5000)
         }
       })
   }
 }
 
-// const grabEachPinnedDestination = pin => {
-//   return fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
-//     credentials: "include",
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//   }).then(response => response.json())
-//     .then(response => {
-//       if (response.error) {
-//         alert(response.error)
-//       } else {
-//         console.log(response)
-//       }
-//     })
-// }
+async function putEachPinInArray(pin) {
+  await fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
+    credentials: "include",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  }).then(response => response.json())
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
+      } else {
+        console.log(response)
+      }
+    })
+}
 
 export const deletePinnedDestination = (id, currentUser) => {
   return dispatch => {
