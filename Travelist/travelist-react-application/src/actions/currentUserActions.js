@@ -138,20 +138,29 @@ export const getPinnedDestinations = (currentUser) => {
         } else {
           result = grabEachPin(response)
         }
-        dispatch(setPinnedDestinations(result))
+        window.setTimeout(dispatch(setPinnedDestinations(result)), 5000)
       })
   }
 }
 
-async function grabEachPin(response) {
+function grabEachPin(response) {
   let pins = []
   response.data.forEach(pin => {
-    fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`)
-
-    if (pin.done) {
-      console.log(pin)
-      pins.push(pin)
-    }
+    fetch(`http://localhost:3000/api/v1/destinations/${pin.attributes.destination_id}`, {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    }).then(pin => pin.json())
+      .then(pin => {
+        if (pin.error) {
+          alert(pin.error)
+        } else {
+          console.log(pin)
+          pins.push(pin)
+        }
+      })
   })
   return pins
 }
