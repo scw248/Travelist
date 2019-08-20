@@ -138,7 +138,7 @@ export const getPinnedDestinations = (currentUser) => {
         } else {
           result = grabEachPin(response)
         }
-        window.setTimeout(dispatch(setPinnedDestinations(result)), 5000)
+        return dispatch(setPinnedDestinations(result.data))
       })
   }
 }
@@ -157,12 +157,13 @@ function grabEachPin(response) {
         if (pin.error) {
           alert(pin.error)
         } else {
-          console.log(pin)
           pins.push(pin)
         }
       })
   })
-  return pins
+  console.log(pins)
+  return Promise.allSettled(pins)
+
 }
 
 export const deletePinnedDestination = (id, currentUser) => {
